@@ -1,0 +1,68 @@
+제어문
+04-1 if 문
+class Main {
+  public static void main(String[] args) {
+
+    int money = 2000;
+    if (money >= 3000) {
+      System.out.println("택시를 타고 가라");  
+    } else {
+      System.out.println("걸어가라");  // 걸어가라
+    }
+  }
+} 
+
+비교연산자 and(&&), or(||), not(!)
+|, || -> or
+|  둘다 전부 따져서 결과 도출
+|| 앞에 하나만 따져서 결과 도출 -> 속도 더 빠름
+True | True ->True       1개 확인
+True | False ->True      1개 확인
+False || True -> True    2개 확인
+False || False -> False  2개 확인
+
+&, && -> and
+&  둘다 전부 따져서 결과 도출
+&& 앞에 하나만 따져서 결과 도출 -> 속도 더 빠름
+True & True ->True     1개 확인
+True & False ->False   1개 확인
+False && True -> False  2개 확인
+False && False -> True  2개 확인
+
+    int money = 2000;
+    boolean hasCard = true;
+    if (money >= 3000 || hasCard) {
+      System.out.println("택시를 타고 가라");
+    } else {
+      System.out.println("걸어가라");
+
+
+contains : List 자료형에는 해당아이템이 있는지 조사하는 contains라는 메소드가 있다.
+ArrayList<String> pocket = new ArrayList<String>();
+pocket.add("paper");
+pocket.add("handphone");
+pocket.add("money");
+
+if (pocket.contains("money")) {
+  System.out.println("택시를 타고 가라"); 
+} else {
+  System.out.println("걸어가라"); // 택시를 타고 가라
+}
+
+
+else if (다중 조건 판단) : else if는 이전 조건문이 거짓일 때 수행
+boolean hasCard = true;
+ArrayList<String> pocket = new ArrayList<String>();
+pocket.add("paper");
+pocket.add("handphone");
+pocket.add("money");
+
+if (pocket.contains("money")) {
+  System.out.println("택시를 타고 가라"); 
+} else {
+  if (hasCard) {
+    System.out.println("택시를 타고 가라");
+  } else {
+    System.out.println("걸어가라");
+  }
+  }
