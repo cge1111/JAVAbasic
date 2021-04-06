@@ -1,0 +1,22 @@
+4-5 for each 문
+예 1)
+for each 구조로 변경하면 다음과 같다.
+String[] numbers = {"one", "two", "three"};
+for(String number: numbers) {
+    System.out.println(number);
+}
+
+예 2)
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    ArrayList<String> numbers = new ArrayList<String>(); // 제네릭스
+    numbers.add("one");
+    numbers.add("two");
+    numbers.add("three");
+
+    for(String number: numbers)
+      System.out.println(number);  // one two three
+  }
+}
