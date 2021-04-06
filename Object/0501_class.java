@@ -10,12 +10,16 @@ public class Animal {
 }
 
 예1)
-setName메소드를 호출할 수 있도록 main메소드를 다음과 같이 수정해 보자.
-public class Animal {
+// 05_1_클래스_예제
+package Object;
+
+public class Animal {  
     String name;
     public void setName(String name) {
         this.name = name;  // cat.name = "boby"; , dog.name = "happy";
     }
+    // 객체 : horse,  이름 :nabi 부여 추가
+    // 객체 : rabbit, 이름 :mija 부여 추가
     public static void main(String[] args) {
         
         Animal cat = new Animal();
@@ -24,7 +28,15 @@ public class Animal {
         Animal dog = new Animal();
         dog.setName("happy");
 
+        Animal horse = new Animal();
+        horse.setName("nabi");
+
+        Animal rabbit = new Animal();
+        rabbit.setName("mija");
+
         System.out.println(cat.name);
-        System.out.println(dog.name);   // body happy
+        System.out.println(dog.name);
+        System.out.println(horse.name);
+        System.out.println(rabbit.name);
     }
 }
