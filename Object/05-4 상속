@@ -24,7 +24,7 @@ public class Dog extends Animal { // Animal에서 상속받음
 
 [ HouseDog.java ]
 package Object;
-public class HouseDog extends Dog {
+public class HouseDog extends Dog {   // 다중(동시) 상속 불가
     public void sleep() {
         System.out.println(this.name+" zzz in house");
     // 부모클래스의 메소드를 자식클래스가 동일한 형태로 또다시 구현하는 행위를 
