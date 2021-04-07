@@ -1,0 +1,117 @@
+05-6 인터페이스
+[ Animal.java ]
+public class Animal {
+    String name;
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+[ Tiger.java ]
+public class Tiger extends Animal {
+}
+
+[ Lion.java ]
+public class Lion extends Animal {
+}
+
+[ ZooKeeper.java ]
+public class ZooKeeper { // 메소드 오버로딩
+    public void feed(Tiger tiger) {
+        System.out.println("feed apple");
+    }
+    public void feed(Lion lion) {
+        System.out.println("feed banana");
+    }
+    public static void main(String[] args) {
+        ZooKeeper zooKeeper = new ZooKeeper();
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+        zooKeeper.feed(tiger);
+        zooKeeper.feed(lion);
+    }
+}
+
+[ Predator.java ] // 육식동물
+public interface Predator {  // 인터페이스를 구현하자
+}
+
+[ Lion.java ]
+public class Lion extends Animal implements Predator { // 인터페이스를 구현
+}
+
+[ Tiger.java ]
+package Object;
+public class Tiger extends Animal implements Predator {  // 인터페이스를 구현    
+}
+
+
+[ ZooKeeper.java ]
+package Object;
+public class ZooKeeper {  
+    public void feed(Predator predator) { 
+        System.out.println("feed ST");
+    }
+    public static void main(String[] args) {
+        ZooKeeper zooKeeper = new ZooKeeper();
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+        zooKeeper.feed(tiger); // Tiger 클래스의 객체, Predator 인터페이스의 객체
+        zooKeeper.feed(lion);  // Lion  클래스의 객체, Predator 인터페이스의 객체
+    }
+}
+
+[ Crocodile.java ]
+package Object;
+public class Crocodile extends Animal implements Predator {  // Predator 인터페이스 
+}
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+[ Predator.java ] // 육식동물
+public interface Predator {  // 인터페이스를 구현하자
+  public String getFood();  // 메소드의 이름과 입출력에 대한 정의만 있고 그 내용x, 이름만 들어옴
+  // 메소드, 객체변수만 올 수 있다
+}
+
+
+[ Lion.java ]
+public class Lion extends Animal implements Predator {   // Predator 인터페이스(연결)
+  public String getFood() {
+        return "apple";  // 여기서 구현
+
+}
+
+[ Tiger.java ]
+package Object;
+public class Tiger extends Animal implements Predator {  //  // Predator 인터페이스(연결)
+  public String getFood() {
+        return "banana";  // 여기서 구현
+}
+
+[ Crocodile.java ]
+package Object;
+public class Crocodile extends Animal implements Predator {   // Predator 인터페이스(연결)
+  public String getFood() {
+        return "orange";  // 여기서 구현
+}
+
+
+[ ZooKeeper.java ]
+package Object;
+public class ZooKeeper {  
+    public void feed(Predator predator) {   // predator: tiger, lion, corcodile
+        System.out.println("feed " +predator.getFood());  // getFood메소드 호출
+    }
+    
+ 
+    public static void main(String[] args) {
+        ZooKeeper zooKeeper = new ZooKeeper();   // 객체 생성
+        Tiger tiger = new Tiger();              // 객체 생성
+        Lion lion = new Lion();                 // 객체 생성
+        Crocodile corcodile = new Crocodile();  // 객체 생성
+
+        zooKeeper.feed(tiger);  // Tiger 클래스의 객체, Predator 인터페이스의 객체
+        zooKeeper.feed(lion);  // Lion  클래스의 객체, Predator 인터페이스의 객체
+        zooKeeper.feed(corcodile);  // Crocodile  클래스의 객체, Predator 인터페이스의 객체
+    }
+}
