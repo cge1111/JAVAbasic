@@ -1,1 +1,50 @@
 05-4 상속
+[ Animal.java ]
+package Object;
+public class Animal {  
+    String name;
+    public void setName(String name) {
+        this.name = name;  // cat.name = "boby"; , dog.name = "happy";
+    }
+}
+
+[ Dog.java ]
+package Object;
+public class Dog extends Animal { // Animal에서 상속받음
+    public void sleep() {
+        System.out.println(this.name+"zzz");
+    }
+        public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.setName("poppy");
+        System.out.println(dog.name);
+        dog.sleep();
+    }
+}
+
+[ HouseDog.java ]
+package Object;
+public class HouseDog extends Dog {
+    public void sleep() {
+        System.out.println(this.name+" zzz in house");
+    // 부모클래스의 메소드를 자식클래스가 동일한 형태로 또다시 구현하는 행위를 
+    // 메소드 오버라이딩이라고 한다. (※ 메소드 덮어쓰기, 변경)
+    }
+    public void sleep(int hour) {
+        System.out.println(this.name+ "zzz in house for " +hour+ "hours");
+   // 메소드 오버로딩 (method overloading) : HouseDog 클래스에 메소드를 추가해 보자. ("추가")
+    }
+    public void sleep(int hour, int min) {
+        System.out.println(this.name+ "zzz in house for " +hour+ "hours" +min+" minutes");
+    }
+    public static void main(String[] args){
+        HouseDog houseDog = new HouseDog();
+        houseDog.setName("happy"); // Animal 메소드 상속
+        houseDog.sleep();          // sleep() 메소드 호출
+        houseDog.sleep(3);         // sleep(int hour) 메소드 호출
+        houseDog.sleep(4, 30);     // sleep(int hour, int min) 메소드 호출
+    }
+}
+
+
+
