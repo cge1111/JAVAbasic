@@ -1,0 +1,75 @@
+06-2 파일 입출력
+
+[ FileWrite.java ]
+package input;
+import java.io.FileOutputStream;   // 파일 생성
+import java.io.IOException;   // 예외처리
+public class FileWrite {
+    public static void main(String[] args) throws IOException {
+        FileOutputStream output = new FileOutputStream("out.txt");
+        output.close();
+    }
+}
+
+
+파일에 내용쓰기
+[ FileWrite.java ]
+package input;
+import java.io.FileOutputStream;   // 파일 생성
+import java.io.IOException;   // 예외처리
+public class FileWrite {
+    public static void main(String[] args) throws IOException {
+        FileOutputStream output = new FileOutputStream("out.txt");
+        for(int i=1; i<11; i++) {
+            String data = i+" 번째 줄입니다.\r\n";
+            output.write(data.getBytes());
+        }
+        output.close();
+    }
+}
+
+
+
+
+파일에 내용 추가하기
+[ FileWrite.java ]
+package input;
+// import java.io.FileWriter;   // 파일 생성
+// import java.io.IOException;   // 예외처리
+// import java.io.PrintWriter;
+import java.io.*;  // 정답은 아니다.
+
+public class FileWrite {
+    public static void main(String[] args) throws IOException {
+        // FileWriter fw = new FileWriter("out.txt");
+        PrintWriter pw = new PrintWriter("out.txt");
+        for(int i=1; i<11; i++) {
+            String data = i+" 번째 줄입니다. \r\n";
+            pw.write(data);
+        }
+        pw.close();
+
+        PrintWriter pw2 = new PrintWriter(new FileWriter("out.txt", true));
+        // FileWriter fw2 = new FileWriter("out.txt", true);
+        for(int i=11; i<21; i++) {
+            String data = i+" 번째 줄입니다.\r\n";
+            pw2.write(data);
+        }
+        pw2.close();
+    }
+}
+
+파일 읽기
+[ FileRead.java ]
+import java.io.FileInputStream;
+import java.io.IOException;
+public class FileRead {
+    public static void main(String[] args) throws IOException {
+        byte[] b = new byte[1024];
+        FileInputStream input = new FileInputStream("c:/out.txt");
+        input.read(b);
+        System.out.println(new String(b));
+        input.close();
+    }
+}
+
