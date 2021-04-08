@@ -73,3 +73,21 @@ public class FileRead {
     }
 }
 
+
+// 1부터 100까자의 수 중 홀수들만 odd.txt로 저장하세요
+import java.io.*;  
+
+public class FileWrite {
+    public static void main(String[] args) throws IOException {
+        // FileWriter fw = new FileWriter("out.txt");
+        PrintWriter pw = new PrintWriter("odd.txt");
+        for(int i=1; i<101; i++) {
+            if (i%2 == 1) {
+                String data = i+" 홀수\r\n";
+                pw.write(data);
+            }
+        }
+        pw.close();
+    }
+}
+
