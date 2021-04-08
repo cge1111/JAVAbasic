@@ -1,0 +1,38 @@
+05-8 추상클래스 (Abstract Class)
+인터페이스로 대체하는것이 좋은 디자인
+  1. 이름만 있고 구현x -> 인터페이스
+  2. 인터페이스로 역할o, 구현o, 상속 받을 수 있음
+
+
+[ Predator.java ]
+public abstract class Predator extends Animal {
+    public abstract String getFood();
+}
+
+[ Tiger.java ]
+public class Tiger extends Predator implements Barkable {// 상속(extends) // 구현(인터페이스)
+    public String getFood() {
+        return "apple";
+    }
+    public void bark() {
+        System.out.println("어흥");
+    }
+}
+
+[ Lion.java ]
+public class Lion extends Predator implements Barkable {
+    public String getFood() {
+        return "banana";
+    }
+    public void bark() {
+        System.out.println("으르렁");
+    }
+}
+
+[ Predator.java ]
+public abstract class Predator extends Animal {
+    public abstract String getFood();
+    public boolean isPredator() {
+        return true;
+    }
+}
