@@ -17,3 +17,38 @@ public class StreamTest {
     }
 }
 
+
+// 입력을 받아서 1이면 박영선, 2면 오세훈, 3이면 허경영 을 각각 출력하는 프로그램을 만드세요.
+
+package input;
+
+import java.util.Scanner;  // 파이썬 = input
+
+public class StreamTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);  // 객체입력
+
+        int a = sc.nextInt();
+        // String b ="";
+        // switch (a) {
+        //     case 1: b = "박영선";
+        //         break;
+        //     case 2: b = "오세훈";
+        //         break;
+        //     case 3: b = "허경영";
+        //         break;
+        //     default:b = "후보 없음";
+        // }
+        // System.out.println(b);
+        if (a == 1) {
+            System.out.println("박영선");  
+        } else if (a == 2) {
+            System.out.println("오세훈");  
+        } else if (a == 3) {
+            System.out.println("허경영"); 
+        }
+    
+    }
+}
+
+
