@@ -2,6 +2,9 @@
 인터페이스로 대체하는것이 좋은 디자인
   1. 이름만 있고 구현x -> 인터페이스
   2. 인터페이스로 역할o, 구현o, 상속 받을 수 있음
+  
+단점
+  1. 클래스에서 상속 받기 때문에 다중상속 안됨
 
 
 [ Predator.java ]
@@ -28,6 +31,8 @@ public class Lion extends Predator implements Barkable {
         System.out.println("으르렁");
     }
 }
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 [ Predator.java ]
 public abstract class Predator extends Animal {
