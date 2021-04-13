@@ -1,4 +1,4 @@
-package thebookclass;
+package thebookclass; // 24. (참조형)String클래스
 
 public class StringExam {
     
@@ -30,8 +30,6 @@ public class StringExam {
 // Quiz. str1 str2 without NEW keyword -> hello
 // str3 str4 with NEW keyword          -> hello
 // str1~str4 모든 주소 출력 System.out.println(System.identityHashCode(str1));
-
-
 
 
 
